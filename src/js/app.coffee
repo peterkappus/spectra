@@ -120,9 +120,9 @@ circle = (x,y,rad,stroke_width) ->
   #d.circle(rad).cx(x).cy(y).fill({opacity: 1, color: background_color}).stroke({color: foreground_color, width: stroke_width})
 
 #number of circles
-circ_count = 5
+circ_count = 15
 
-size = height/3
+size = height/18
 stroke = size/12
 show_color = true
 background()
@@ -140,7 +140,7 @@ destroy = () ->
     circs[circ].remove()
     circs = []
 
-migrate = () ->
+migrate = (time = time) ->
   for circ in [1..circ_count]
     target_x = rando((width * .1),width * .8)
     target_y = rando((width * .1),height * .8)
@@ -152,16 +152,15 @@ migrate = () ->
 
 
 make()
-migrate()
+migrate(time)
 #now do it every X seconds
-setInterval migrate, hold_time
+int = setInterval migrate, hold_time, time
 
-###
 $('body').mousedown (event) ->
   show_color = !show_color
-  #circs = []
-  #make()
-  #migrate()
-###
+  migrate(time/3)
+  clearInterval(int)
+  int = setInterval migrate, hold_time, time
+
 
 #mountain_scene()
