@@ -1,0 +1,27 @@
+doctype html
+html lang="en"
+  head
+    meta charset="utf-8"
+    meta http-equiv="X-UA-Compatible" content="IE=edge"
+    / refresh every X Seconds
+    meta http-equiv="refresh" content="1800"
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    / hide safari stuff on ipad, etc.
+    meta name="apple-mobile-web-app-capable" content="yes"
+    title spectra
+    meta name="keywords" content="information art"
+    meta name="author" content="Peter Kappus"
+
+      sass:
+        body
+          margin: 0
+          border: 0
+          height: 100%
+          background: #fco
+
+    body
+      #svg
+      / load everything else first
+      script src="/js/all.min.js"
+      /our coffee script
+      script src="/js/app.js?cachebuster=#{Time.now.to_i}"

@@ -1,0 +1,7 @@
+#config.js holds our secret stuff. Don't put this in source control
+config.js
+deploy.sh
+#dist holds our generated distribution files. Don't put this in source control
+dist/
+#node_modules holds our installed node modules via 'npm install'. Don't put this in source control
+node_modules/
