@@ -120,14 +120,14 @@ circle = (x,y,rad,stroke_width) ->
   #d.circle(rad).cx(x).cy(y).fill({opacity: 1, color: background_color}).stroke({color: foreground_color, width: stroke_width})
 
 #number of circles
-circ_count = 15
+circ_count = 20
 
-size = height/18
+size = height/24
 stroke = size/12
 show_color = true
 background()
 
-time = 5000
+time = 3000
 hold_time = time * 1.7
 circs = []
 
@@ -156,9 +156,9 @@ migrate(time)
 #now do it every X seconds
 int = setInterval migrate, hold_time, time
 
-$('body').mousedown (event) ->
+$('body').on "touchstart", (event) ->
   show_color = !show_color
-  migrate(time/3)
+  migrate(time/2)
   clearInterval(int)
   int = setInterval migrate, hold_time, time
 
