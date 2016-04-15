@@ -120,15 +120,16 @@ circle = (x,y,rad,stroke_width) ->
   #d.circle(rad).cx(x).cy(y).fill({opacity: 1, color: background_color}).stroke({color: foreground_color, width: stroke_width})
 
 #number of circles
-circ_count = 20
+margin = height/10
 
-size = height/24
+circ_count = 3
+size = height
 stroke = size/12
 show_color = true
 background()
 
-time = 3000
-hold_time = time * 1.7
+time = 200000
+hold_time = time
 circs = []
 
 make =() ->
@@ -142,8 +143,8 @@ destroy = () ->
 
 migrate = (time = time) ->
   for circ in [1..circ_count]
-    target_x = rando((width * .1),width * .8)
-    target_y = rando((width * .1),height * .8)
+    target_x = rando((margin),width-margin)
+    target_y = rando((margin),height-margin)
     if(show_color)
       target_color = rand_color()
     else
@@ -158,7 +159,7 @@ int = setInterval migrate, hold_time, time
 
 $('body').on "touchstart", (event) ->
   show_color = !show_color
-  migrate(time/2)
+  migrate(time*0.8)
   clearInterval(int)
   int = setInterval migrate, hold_time, time
 
