@@ -13,3 +13,10 @@ Start gulp:
 `gulp`
 
 Now visit http://localhost:1337
+
+## Deploy to S3:
+Make a `deploy.sh` file like so:
+```
+s3cmd sync dist/ s3://<BUCKET_NAME> --delete-removed -P --rexclude=.git*
+```
+(NOTE: you'll need s3cmd to do this...)
