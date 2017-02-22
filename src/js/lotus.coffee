@@ -25,7 +25,7 @@ class window.Lotus
       #rando radius within half the width or height
       radius = sol.height/2 * sol.rando(0.2,0.9*(1-(counter/(steps*revolutions))))
 
-      console.log(counter)
+      # console.log(counter)
       x2 = cx + (Math.sin(new_angle) * radius)
       y2 = cy + (Math.cos(new_angle) * radius)
 
