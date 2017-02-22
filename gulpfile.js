@@ -1,6 +1,6 @@
 var gulp        = require('gulp'),
     gutil       = require('gulp-util'),
-    sass        = require('gulp-sass'),
+    //sass        = require('gulp-sass'),
     csso        = require('gulp-csso'),
     uglify      = require('gulp-uglify'),
     jade        = require('gulp-jade'),
@@ -30,11 +30,11 @@ gulp.task('coffee', function() {
 // --- Basic Tasks ---
 gulp.task('css', function() {
   return gulp.src('src/css/*')
-    .pipe(
+    /*.pipe(
       sass( {
         includePaths: ['src/css'],
         errLogToConsole: true
-      } ) )
+      } ) )*/
     .pipe( csso() )
     .pipe( gulp.dest('dist/css/') )
     .pipe( livereload( server ));
@@ -42,8 +42,8 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
   return gulp.src('src/js/*.js')
-    .pipe( concat('all.min.js'))
-    .pipe( uglify() )
+    /*.pipe( concat('all.min.js'))
+    .pipe( uglify() )*/
     .pipe( gulp.dest('dist/js/'))
     .pipe( livereload( server ));
 });

@@ -11,18 +11,18 @@ html lang="en"
     title spectra
     meta name="keywords" content="information art"
     meta name="author" content="Peter Kappus"
-    coffee:
-      #alert('ok')
+    script src="/js/jquery.min.js"
+    script src="/js/svg.min.js"
+    //enable this during dev to see things as you work...
+    //script src="live.js"
     sass:
       body
         margin: 0
         border: 0
         height: 100%
-        background: #fco
 
-  body
+  body Xonresize="init()"
     #svg
-    / load everything else first
-    script src="/js/all.min.js"
-    /our coffee script
-    script src="/js/app.js?cachebuster=#{Time.now.to_i}"
+    script src="/js/sol.js"
+    script src="/js/lotus.js"
+    script src="/js/main.js"

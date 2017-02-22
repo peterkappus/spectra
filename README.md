@@ -1,16 +1,15 @@
 # spectra
 Beautiful, realtime, information for your home. Playable on your crappy old first-gen iPad.
 
-
-Uses Gulp.
-
 ## Installing gulp
-`npm install -g gulp`
-`npm install --save-dev gulp`
+Usually have to do this as sudo to do it globally
+```
+sudo npm install -g gulp
+npm install --save-dev gulp
+```
 
-### Running the thing
-
+## Run it...
 Start gulp:
-```$ gulp```
+`gulp`
 
-Visit http://localhost:1337
+Now visit http://localhost:1337
