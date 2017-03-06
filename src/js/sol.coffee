@@ -1,8 +1,14 @@
 
 class window.Sol
   constructor: ->
-    @width = window.innerWidth
-    @height = window.innerHeight
+    #Go square! Use the smaller of the two dimensions
+    if(window.innerWidth < window.innerHeight)
+      @width = @height = window.innerWidth
+    else
+      @width = @height = window.innerHeight
+      
+    #@width = window.innerWidth
+    #@height = window.innerHeight
     #@canvas_id = canvas_id
     @canvas = SVG("svg").size(@width,@height)
     @foreground_color = "#000"
@@ -29,7 +35,7 @@ class window.Sol
 
   #rand foreground?
   randColor: ->
-    '#'+(0xFFFFFF-Math.random()*0xFFFFFF).toString(16).substr(0, 6)
+    new SVG.Color('#'+(0xFFFFFF-Math.random()*0xFFFFFF).toString(16).substr(0, 6))
 
   background: (color=@background_color) ->
     #clear the screen
