@@ -4,7 +4,7 @@ window.init = () ->
   
   new Walker
   
-  window.setTimeout(init, 10000);
+  window.setTimeout(init, 5000);
 
   
   #console.log sol.rando(sol.width, 900)
