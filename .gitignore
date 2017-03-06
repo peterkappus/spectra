@@ -5,3 +5,4 @@ deploy.sh
 dist/
 #node_modules holds our installed node modules via 'npm install'. Don't put this in source control
 node_modules/
+.DS_Store
