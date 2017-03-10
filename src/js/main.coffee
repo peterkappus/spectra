@@ -1,11 +1,12 @@
 window.init = () ->
   #sol = window.sol
-  sol.background("#fff")
+  #sol.background("#fff")
   
-  new Walker
+  #new Walker
+  new WomensDay
   
-  window.setTimeout(init, 5000);
-
+  clearTimeout(window.myTimeout)
+  window.myTimeout = setTimeout(init, 5000);
   
   #console.log sol.rando(sol.width, 900)
   #new GradientStudy()
@@ -20,6 +21,6 @@ window.init = () ->
   
     #sol.canvas.circle(5).cx(x).cy(y).fill("#000")
   
-  #new Lotus(10,50)
+  #new Lotus(10,50,50)
   
 init()
