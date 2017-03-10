@@ -18,7 +18,7 @@ class window.WomensDay
     right_y = cy+rad
     sol.canvas.line(left_x,left_y,right_x,right_y).stroke({width: stroke_width, color: '#000'})
     
-    if(rad > 5)
+    if(rad > 10)
       fem_sym(left_x,left_y,rad/2)
       fem_sym(right_x,right_y,rad/2)
       fem_sym(cx,cy+rad+rad/2,rad/2)

@@ -3,10 +3,11 @@ window.init = () ->
   #sol.background("#fff")
   
   #new Walker
-  new WomensDay
+  #new WomensDay
+  new Squigs
   
-  clearTimeout(window.myTimeout)
-  window.myTimeout = setTimeout(init, 5000);
+  #clearTimeout(window.myTimeout)
+  #window.myTimeout = setTimeout(init, 5000);
   
   #console.log sol.rando(sol.width, 900)
   #new GradientStudy()
