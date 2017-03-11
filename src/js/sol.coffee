@@ -15,8 +15,8 @@ class window.Sol
     @background_color = "#fff"
 
   rando: (min,max) ->
-    return(Math.random() * (max - min) + min)
-
+    return(Math.round(Math.random() * (max - min) + min))
+  
   rando_within: (current,min_amount,max_amount,lower_bound,upper_bound) ->
     #keep us in range...
     if(current + max_amount > upper_bound)
@@ -26,6 +26,10 @@ class window.Sol
     #now do it
     #console.log("current" + current + " min: " + min_amount + " max: " + max_amount)
     return(current + rando(min_amount,max_amount))
+
+  #simplified version of the above takes only 4 arguments
+  rando_walk: (current, delta, lower_bound, upper_bound) ->
+    return sol.rando_within(current, -delta, delta, lower_bound, upper_bound)
 
   vline: (x,thickness) ->
       @canvas.rect(thickness,@height).x(x).fill(@foreground_color)
