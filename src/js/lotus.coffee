@@ -26,7 +26,9 @@ class window.Lotus
 
     palettes = ["#F0D8A8,#3D1C00,#86B8B1,#F2D694,#FA2A00,#F0D8A8,#3D1C00,#86B8B1", "#00A0B0,#6A4A3C,#CC333F,#EB6841,#EDC951,#00A0B0,#6A4A3C,#CC333F", "#5E412F,#FCEBB6,#78C0A8,#F07818,#F0A830,#5E412F,#FCEBB6,#78C0A8", "#A3A948,#EDB92E,#F85931,#CE1836,#009989,#A3A948,#EDB92E,#F85931"]
 
-    palettes_string = palettes[Math.round(Math.random()*palettes.length)]
+    index = Math.floor(Math.random()*palettes.length)
+    
+    palettes_string = palettes[index]
     colors = palettes_string.split(",")
           
 
@@ -47,23 +49,18 @@ class window.Lotus
       x2 = cx + (Math.sin(new_angle) * radius)
       y2 = cy + (-Math.cos(new_angle) * radius)
       
-          
-      
       #baseColor = new SVG.Color({r: Math.round(sol.rando(100,220)), g: Math.round(sol.rando(5,150)), b: Math.round(sol.rando(18,25))})
       #otherColor = new SVG.Color({r: Math.round(sol.rando(100,220)), g: Math.round(sol.rando(5,150)), b: Math.round(sol.rando(18,25))})
       
-      #console.log otherColor
-      
       #baseColor = sol.randColor()
-      
-      baseColor = new SVG.Color(colors[colors.length * Math.random() | 0])
       #10% darker      
       #otherColor = baseColor.morph("#000").at(0.1)
+      
+      baseColor = new SVG.Color(colors[colors.length * Math.random() | 0])
       otherColor = new SVG.Color(colors[colors.length * Math.random() | 0])
       
       #totally random other color
       #otherColor = sol.randColor()
-      
       
       #how about a gradient? yeah!
       gradient = sol.canvas.gradient('linear', (stop) ->
@@ -72,8 +69,7 @@ class window.Lotus
 
       fill = gradient
       #fill = sol.randColor()
-      
-      #draw our polygon
+      #draw our triangle
       sol.canvas.polygon("#{cx},#{cy} #{x1},#{y1} #{x2},#{y2}").fill(fill)
 
       #set the old "angle" to our "new_angle" so our next triangle lines up with this one

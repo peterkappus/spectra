@@ -1,4 +1,3 @@
-
 class window.Sol
   constructor: ->
     #Go square! Use the smaller of the two dimensions
@@ -10,12 +9,19 @@ class window.Sol
     #@width = window.innerWidth
     #@height = window.innerHeight
     #@canvas_id = canvas_id
-    @canvas = SVG("svg").size(@width,@height)
+    @canvas = SVG("svg").size(@width*0.95,@height*0.95)
     @foreground_color = "#000"
     @background_color = "#fff"
-
+  
+  #untested...  
+  sample: (array) ->
+    return(array[rando(0,array.length)])
+    
   rando: (min,max) ->
-    return(Math.round(Math.random() * (max - min) + min))
+    return(Math.random() * (max - min) + min)
+  
+  round_rando: (min,max) ->
+    return Math.round(rando(min,max))
   
   rando_within: (current,min_amount,max_amount,lower_bound,upper_bound) ->
     #keep us in range...

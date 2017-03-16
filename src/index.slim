@@ -17,11 +17,17 @@ html lang="en"
     //script src="live.js"
     sass:
       body
-        margin: 0
+        margin: 10px
         border: 0
         height: 100%
+      
+      .biglinks a
+        font-size: 3rem
+        text-decoration: none
+        font-family: 'Helvetica', 'Arial'
+        display: block
 
-  body onresize="init()"
+  body xonresize="init()"
     #svg style="text-align: center"
     script src="/js/sol.js"
     script src="/js/lotus.js"
@@ -29,7 +35,18 @@ html lang="en"
     script src="/js/womens_day.js"
     script src="/js/gradient_study.js"
     script src="/js/squigs.js"
+    script src="/js/holi.js"
+    script src="/js/vera.js"
+    script src="/js/specks.js"
     script src="/js/main.js"
+    .biglinks 
+      a href="javascript: new Vera()" Vera
+      a href="javascript: go_lotus()" Lotus
+      a href="javascript: new Walker()" Walker
+      a href="javascript: new splatter()" Splatter
+      a href="javascript: Squigs.big_squigs()" Squigs
+      a href="javascript: Squigs.modern_loop()" Modern loop
+      a href="javascript: sol.background('#fff')" Clear
     javascript:
       //put some js here if you want...
-      //init();
+      //init();      
