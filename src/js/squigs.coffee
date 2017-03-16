@@ -7,11 +7,11 @@ class window.Squigs
   @big_squigs: () ->
     delta = sol.width
     count = 1#sol.rando(1,10)
-    thickness = 30
+    thickness = sol.rando(10,30)
     is_closed = false
     Squigs.MARKER_RAD = 0#sol.rando(0, sol.width/2)
     
-    for i in [1..50]#sol.rando(9,12)]
+    for i in [1..30]#sol.rando(9,12)]
       solo_squig(count,thickness,new SVG.Color({r: sol.round_rando(0,255), g: sol.round_rando(0,80), b: sol.round_rando(0,75)}), delta, is_closed)
       
     #for i in [1..sol.rando(1,20)]
@@ -19,7 +19,7 @@ class window.Squigs
     
   #modern art looking loopy thing with marker discs
   @modern_loop: () ->
-    sol.background("#fff")
+    #sol.background("#fff")
     delta = sol.width / sol.rando(3,10)
     count = sol.rando(1,5)
     thickness = sol.rando(0.2,sol.width/80)
