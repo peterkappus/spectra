@@ -18,18 +18,18 @@ class window.Vera
     thickness = w/5
     if(Math.random() > 0.5)      
       #down to the right
-      @_my_line(x, y + h/2, x + w/2, y + h, thickness)
-      @_my_line(x + w/2, y + 0, x + w, y + h/2, thickness)
+      @_line(x, y + h/2, x + w/2, y + h, thickness)
+      @_line(x + w/2, y + 0, x + w, y + h/2, thickness)
     else
       #up to the right
-      @_my_line(x, y + h/2, x + w/2, y, thickness)
-      @_my_line(x + w/2, y + h, x + w, y + h/2, thickness)
+      @_line(x, y + h/2, x + w/2, y, thickness)
+      @_line(x + w/2, y + h, x + w, y + h/2, thickness)
       
   
-  #TODO... 
-  #curve_box = (x,y,w,h) ->
+  #TODO...   
+  #_curve = (x,y,w,h) ->
     
-  _my_line: (x1,y1,x2,y2, thickness) ->    
+  _line: (x1,y1,x2,y2, thickness) ->    
     #console.log(@color)
     sol.canvas.line(x1,y1,x2,y2).stroke({color: @color; width: thickness; linecap: 'round'})
       

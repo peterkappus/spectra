@@ -18,13 +18,37 @@ splatter = () ->
   #black
   new Specks(sol.rando(0,sol.width),sol.rando(0,sol.height),"#000")
   
-
+class Point
+  constructor: (x,y) ->
+    @x = x
+    @y = y
+    
+line_segment = (x,y,angle,distance) ->
+  x2 = x + (Math.cos(angle) * distance)
+  y2 = y + (Math.sin(angle) * distance)
+    
+  sol.canvas.line(x,y,x2,y2).stroke({width: 3; color: "#000"})
+  
+  #return our end point so we can carry on drawing
+  return new Point(x2,y2)
+  
 window.init = () ->
   #sol = window.sol
   #sol.background("#fff")
   
-  clearTimeout(window.myTimeout)
-  window.myTimeout = setTimeout(init, 5000);
+  ###
+  #starting point
+  p = new Point(Math.random()*sol.width, Math.random() * sol.height)
+  
+  for i in [1..20]
+    p = line_segment(p.x,p.y,Math.random()*2*Math.PI,sol.width/10)  
+    console.log(p.x)
+  ###
+  
+  #clearTimeout(window.myTimeout)
+  #window.myTimeout = setTimeout(init, 5000);
+  
+  #new Islamic()
   
   #console.log sol.rando(sol.width, 900)
   #new GradientStudy()

@@ -13,6 +13,12 @@ class window.Sol
     @foreground_color = "#000"
     @background_color = "#fff"
   
+  line_segment: (x,y,angle,distance) ->
+    x2 = x + (Math.cos(angle) * distance)
+    y2 = y + (Math.sin(angle) * distance)
+      
+    sol.canvas.line(x,y,x2,y2).stroke({width: 3; color: "#000"})
+    
   #untested...  
   sample: (array) ->
     return(array[rando(0,array.length)])
@@ -54,8 +60,10 @@ class window.Sol
 window.save_svg = () ->
   console.log "Saving..."
   #$.post('/save_svg',{data: $('#svg').html()})
-  $.post('/save_svg',{data: $('#svg').html()}, () -> document.title = "Saved!")
-
+  #$.post('/save_svg',{data: $('#svg').html()}, () -> document.title = "Saved!")
+  $.post('http://localhost:9393/save_svg',{data: $('#svg').html()}, () -> 
+    document.title = "Saved!"
+    console.log "Saved!")
 #capture <ENTER> key presses
 $('body').keypress (event) ->
   if(event.which == 13)
@@ -72,5 +80,5 @@ window.foreground_color = sol.foreground_color
 
 
 #save on click
-#$('body').mousedown (event) ->
-#  window.save_svg()
+$('#svg').mousedown (event) ->
+  window.save_svg()
