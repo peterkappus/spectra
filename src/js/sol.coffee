@@ -2,17 +2,22 @@ class window.Sol
   constructor: ->
     #Go square! Use the smaller of the two dimensions
     if(window.innerWidth < window.innerHeight)
-      @width = @height = window.innerWidth
+      @width = @height = window.innerWidth * 0.95
     else
-      @width = @height = window.innerHeight
+      @width = @height = window.innerHeight * 0.95
       
     #@width = window.innerWidth
     #@height = window.innerHeight
     #@canvas_id = canvas_id
-    @canvas = SVG("svg").size(@width*0.95,@height*0.95)
+    @canvas = SVG("svg")
+    @set_size(@width,@height)
+    
     @foreground_color = "#000"
     @background_color = "#fff"
   
+  set_size: (w,h) ->
+    @canvas.size(@width,@height)
+
   line_segment: (x,y,angle,distance) ->
     x2 = x + (Math.cos(angle) * distance)
     y2 = y + (Math.sin(angle) * distance)
@@ -21,7 +26,7 @@ class window.Sol
     
   #untested...  
   sample: (array) ->
-    return(array[rando(0,array.length)])
+    return(array[Math.floor(Math.random()*array.length)])
     
   rando: (min,max) ->
     return(Math.random() * (max - min) + min)

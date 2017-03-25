@@ -39,7 +39,7 @@ get_or_post '/save_svg' do
 	file_name = Time.now.to_i
 
 	FOLDER = "../works" #okay to change this
-  IMG_WIDTH = 1200
+  IMG_WIDTH = 2500
 
 	IO.write("#{FOLDER}/#{file_name}.svg",params['data'])
 	#NOTE! you may have to customize the bin path on your server...

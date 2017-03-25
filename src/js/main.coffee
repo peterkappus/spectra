@@ -35,7 +35,8 @@ line_segment = (x,y,angle,distance) ->
 window.init = () ->
   #sol = window.sol
   #sol.background("#fff")
-  
+    
+  #new ColorByNumber
   ###
   #starting point
   p = new Point(Math.random()*sol.width, Math.random() * sol.height)

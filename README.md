@@ -39,6 +39,8 @@ NOTE: if you have issues with the above, you may have to `gem uninstall v8`
 
 NOTE: The "Access-Control-Allow-Origin" header in the Sinatra app must match the host and port of the Express app serving up the gulp-rendered static pages on your localhost.
 
+Works will be saved in the "works" folder in the root.
+
 
 ## Deploy to S3 (front-end only)
 To deploy just the static HTML/JS files which allows you to make pretty pictures and take screenshots (but not capture SVGs) Make a `deploy.sh` file like so:
