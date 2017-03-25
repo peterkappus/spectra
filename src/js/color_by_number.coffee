@@ -1,6 +1,6 @@
 class window.ColorByNumber  
   @random: ->
-    cols = 10
+    cols = 20
     rows = cols #Math.ceil(cols * 1.61803399)
     margin = sol.width / 30
     cell_size = (sol.width - (margin*2)) / cols
@@ -27,8 +27,20 @@ class window.ColorByNumber
     
     
     #valentine
-    colors = "#820081,#FE59C2,#FE40B9,#FE1CAC,#390039"
+    colors = "#CD0037, #820081,#FE59C2,#FE40B9,#FE1CAC,#390039"
     background = "#faf3f3"
+    background = "#fffffe"
+    
+    
+    #oceanfive
+    #colors = "#E8DDCB,#CDB380,#036564,#033649,#002B6F,#031634, #000"
+    #background="#fffffe"
+    
+    
+    #ubud
+    colors = "#85A29E,#FFEBBF,#F0D442,#F59330,#B22148,#5b8ef2,#598829,#223482"
+    background="#fafaf8"
+    
     
     #desert
     #colors = "##0087C3,#E30A27,#FED410,#2EA049"
@@ -45,12 +57,12 @@ class window.ColorByNumber
     #colors = "#FDDDA0,#D45832,#C22B22,#1D4658,#485679"
     #background = "#fdfdFa"
     
-    background="#333"
+    #background="#333"
     
     #split the string into an array
     colors = colors.split(",")
     
-    #sol.background(background)
+    sol.background(background)
     
     
     for col in [0..cols-1]
