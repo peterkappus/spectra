@@ -40,8 +40,15 @@ html lang="en"
     script src="/js/specks.js"
     script src="/js/color_by_number.js"
     script src="/js/islamic.js"
+    script src="/js/arcs.js"
     script src="/js/main.js"
+    
+    / How to add global functions w/ coffeescript
+    /coffee:
+    /  window.booger =  () ->
+        
     .biglinks 
+      a href="javascript: do_arcs()" Arcs
       a href="javascript: ColorByNumber.random()" Random Dots
       /a href="javascript: ColorByNumber.phi()" Color By Number: Phi
       a href="javascript: new Vera()" Vera
@@ -51,7 +58,8 @@ html lang="en"
       a href="javascript: Squigs.big_squigs()" Squigs
       a href="javascript: Squigs.modern_loop()" Modern loop
       a href="javascript: new Islamic()" Islamic
-      a href="javascript: sol.background('#fff')" Clear
-    javascript:
-      //put some js here if you want...
-      //init();      
+      a href="javascript: sol.background('#fff')" clear
+    coffee:
+      do_arcs()
+      
+    

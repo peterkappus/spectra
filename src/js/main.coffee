@@ -31,6 +31,20 @@ line_segment = (x,y,angle,distance) ->
   
   #return our end point so we can carry on drawing
   return new Point(x2,y2)
+
+window.do_arcs = () ->
+  #arc: (cx,cy,rad,start_degrees, end_degrees, clockwise_flag, stroke_params) ->
+  ###
+  arcs = new Arcs()
+  arcs.arc(sol.width/2, sol.height/2, sol.width/5, 100, 260, 1, {width: 10, color: "#000", linecap: "round"})
+  arcs.arc(sol.width/2, sol.height/2, sol.width/5, -80, 80, 1, {width: 10, color: "#000", linecap: "round"})
+  #arcs.arc(sol.width/2, sol.height/2, sol.width/5, 0, 90, 1, {width: 5, color: "#000"})
+  ###
+  arcs = new Arcs()
+  #arcs.broken_ring(sol.width/2,sol.height/2, sol.height/5, sol.width/50, 0)
+  for i in [1..25]
+    thickness = 
+    arcs.split_ring(sol.width/2,sol.height/2, i * sol.height/30, i * sol.height/500, Math.random()*360)
   
 window.init = () ->
   #sol = window.sol

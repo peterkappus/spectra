@@ -47,6 +47,9 @@ class window.Sol
   #simplified version of the above takes only 4 arguments
   rando_walk: (current, delta, lower_bound, upper_bound) ->
     return sol.rando_within(current, -delta, delta, lower_bound, upper_bound)
+  
+  degrees_to_radians: (degrees) ->
+    return (degrees * 2 * Math.PI / 360)  
 
   vline: (x,thickness) ->
       @canvas.rect(thickness,@height).x(x).fill(@foreground_color)

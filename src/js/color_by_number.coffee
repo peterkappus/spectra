@@ -1,52 +1,80 @@
 class window.ColorByNumber  
   @random: ->
-    cols = 20
+    cols = 10
     rows = cols #Math.ceil(cols * 1.61803399)
-    margin = sol.width / 30
+    #margin = sol.width / 30
+    margin = 0
     cell_size = (sol.width - (margin*2)) / cols
     circ_size = cell_size * .5
+    
+    #TODO: make this a parameter...
+    palette_name = 'original'
+    palettes = {}
     
     #visit http://www.palettefx.com/
     #view source and run through `pbpaste | grep -io "rgb(\d\+, \d\+, \d\+)" | pbcopy`
     #copy values below...separated by pipes.
     
-    colors = "rgb(119, 0, 17)||     rgb(170, 136, 153)||     rgb(119, 85, 119)||     rgb(153, 170, 204)||     rgb(0, 68, 136)||     rgb(0, 119, 187)||     rgb(102, 153, 170)||     rgb(187, 221, 221)||     rgb(0, 102, 34)||     rgb(170, 204, 136)||     rgb(170, 170, 68)||     rgb(255, 204, 0)||     rgb(255, 221, 85)||     rgb(255, 85, 0)||      rgb(238, 102, 68)||     rgb(221, 0, 0)||     rgb(102, 34, 34)||     rgb(170, 34, 34)".split("||")
-    background = "#e1dbd4"
-    
-    
+  
     #
     #http://labs.tineye.com/
     #`pbpaste | grep -io "#\w\{6\}" | pbcopy`
     # OR http://html-color-codes.info/colors-from-image/ hand select them  (best option)
     
     #hirst1
-    colors = "#,#e8dba7,#FEC601,#6d9099,#002B6F,#E50000,#8C0E12,#134427,#FE5A05,#0193CC,#01B434,#157c25"
-    #remove the lightest colour for the background
-    #background = "#e1dbd4"
-    background = "#fafaf8"
-    
+    palettes['original'] = { 
+      colors:  "#,#e8dba7,#FEC601,#6d9099,#002B6F,#E50000,#8C0E12,#134427,#FE5A05,#0193CC,#01B434,#157c25", 
+      background: "#fafaf8"
+    }
     
     #valentine
-    colors = "#CD0037, #820081,#FE59C2,#FE40B9,#FE1CAC,#390039"
-    background = "#faf3f3"
-    background = "#fffffe"
+    palettes['sweetheart'] = {
+      colors: "#CD0037,#820081,#FE59C2,#FE40B9,#FE1CAC,#390039",
+      background: "#fffefe"
+    }
     
+    #Black & Blue, Deep Ocean
+    palettes['black_and_blue'] = { 
+      colors: "#E8DDCB,#CDB380,#036564,#033649,#002B6F,#031634, #000",
+      background: "#fffffe"
+    }
+        
+    #earthy - ubud, bali
+    palettes['earthy'] = palettes['ubud'] = palettes['bali'] = { 
+      colors: "#85A29E,#FFEBBF,#F0D442,#F59330,#B22148,#5b8ef2,#598829,#223482",
+      background: "#fafaf8"
+    }
     
-    #oceanfive
-    #colors = "#E8DDCB,#CDB380,#036564,#033649,#002B6F,#031634, #000"
-    #background="#fffffe"
+    palettes['earthy'] = { 
+      colors: "#7F7636,#D2C372,#FAF9EE,#97D171,#4E8037,#7F7636,#D2C372,##472B30,#6B5946,#8E875C,#B39F64,#D7B76C,#472B30,#6B5946,#8E875C",
+      background:"#fff"
+    }
+
+    #primary (kids cereal)
+    #colors = "#F04848,#F09018,#F0F078,#18A8F0,#181848,#F04848,#F09018,#F0F078"
+    #background = "#fff"
     
+    #primary
+    palettes['primary'] = { 
+      colors:"#FFFB17,#FF4917,#2A17FF,#32DE14,#E82217,#FFFB17,#FF4917,#2A17FF,#a213a2",
+      background:"#fff"
+    }
     
-    #ubud
-    colors = "#85A29E,#FFEBBF,#F0D442,#F59330,#B22148,#5b8ef2,#598829,#223482"
-    background="#fafaf8"
+    #pastelle 
+    palettes['pastelle'] = { 
+      colors:"#3FB8AF,#3FB8AF,#7FC7AF,#DAD8A7,#FF9E9D,#FF3D7F,#FF3D7F,#fcea45",
+      background: "#fff"
+    }
     
+    #goth
+    palettes['goth'] = { 
+      colors:"#FFF8C4,#FFF8C4,#FFF8C4,#FF216F,#FF216F,#AB0058,#AB0058, #630033,#300019"    ,
+      background:"#000"
+    }
     
-    #desert
-    #colors = "##0087C3,#E30A27,#FED410,#2EA049"
     
     #mystical
-    #colors = "#E21F61,#652190,#FCCC24,#F82615,#282B88,#E21F61,#652190,#FCCC24"
+    #colors = "#E21F61,#652190,#FCCC24,#F82615,#282B88,#16123c,#7ac626,#FCCC24"
     
     #marvelous
     #colors = "#D9051C,#0087C3,#FFE654,#FFFFFF,#000000"
@@ -60,9 +88,8 @@ class window.ColorByNumber
     #background="#333"
     
     #split the string into an array
-    colors = colors.split(",")
-    
-    sol.background(background)
+    colors = palettes[palette_name]['colors'].split(",")    
+    sol.background(palettes[palette_name]['background'])
     
     
     for col in [0..cols-1]
@@ -72,6 +99,7 @@ class window.ColorByNumber
         sol.canvas.circle(circ_size).cx(x).cy(y).fill({color: sol.sample(colors)})
         console.log(colors[Math.floor(Math.random(colors.length))])
     
+    #sol.canvas.rect(sol.width,sol.height).fill({color:"#fff"; opacity: 0.3})
     
   @phi: ->
     #sol.canvas.remove()
