@@ -42,9 +42,11 @@ window.do_arcs = () ->
   ###
   arcs = new Arcs()
   #arcs.broken_ring(sol.width/2,sol.height/2, sol.height/5, sol.width/50, 0)
-  for i in [1..25]
-    thickness = 
-    arcs.split_ring(sol.width/2,sol.height/2, i * sol.height/30, i * sol.height/500, Math.random()*360)
+  for i in [1..50]
+    magic_multiplier = 80
+    thickness = i * sol.height/(magic_multiplier*20)
+    rad = i * sol.height/magic_multiplier
+    arcs.split_ring(sol.width/2,sol.height/2, i * thickness*1.1, thickness, Math.random()*360)
   
 window.init = () ->
   #sol = window.sol

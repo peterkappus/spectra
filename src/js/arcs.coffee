@@ -6,12 +6,10 @@ class window.Arcs
     gap_percent = 0.05
     sol.canvas.circle(rad*2).stroke({width: thickness, color: "#000", linecap: 'round', dasharray: "#{circumference * (0.5-gap_percent)},#{circumference * gap_percent}" }).fill('none').cx(cx).cy(cy).rotate(rotation)
   
-  
   broken_ring: (cx, cy, rad, thickness, rotation) ->
     @arc(cx, cy, rad, 100, 260, 1, {width: thickness, color: "#000", linecap: "round"})
     @arc(cx, cy, rad, -80, 80, 1, {width: thickness, color: "#000", linecap: "round"})
 
-  
   arc: (cx,cy,rad, start_degrees, end_degrees, clockwise_flag, stroke_params) ->
     start_degrees -= 90
     end_degrees -= 90
