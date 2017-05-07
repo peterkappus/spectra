@@ -30,6 +30,7 @@ html lang="en"
   body xonresize="init()"
     #svg style="text-align: center"
     script src="/js/sol.js"
+    script src="/js/chords.js"
     script src="/js/lotus.js"
     script src="/js/walker.js"
     script src="/js/womens_day.js"
@@ -48,6 +49,7 @@ html lang="en"
     /  window.booger =  () ->
         
     .biglinks 
+      a href="javascript: new Chords()" Chords
       a href="javascript: do_arcs()" Arcs
       a href="javascript: ColorByNumber.random()" Random Dots
       /a href="javascript: ColorByNumber.phi()" Color By Number: Phi
@@ -60,6 +62,7 @@ html lang="en"
       a href="javascript: new Islamic()" Islamic
       a href="javascript: sol.background('#fff')" clear
     coffee:
-      do_arcs()
+      #do_arcs()
+      #new Chords()
       
     
