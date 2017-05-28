@@ -44,4 +44,5 @@ class window.Chords
         x2 = cx + (Math.cos(angle2) * rad)
         y2 = cy + (Math.sin(angle2) * rad)
       
+      #color = sol.randColor()
       sol.canvas.line(x1,y1,x2,y2).stroke({color: color; width: thickness; linecap: 'round'})

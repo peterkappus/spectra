@@ -40,7 +40,7 @@ class window.ColorByNumber
     }
         
     #earthy - ubud, bali
-    palettes['earthy'] = palettes['ubud'] = palettes['bali'] = { 
+    palettes['ubud'] = palettes['bali'] = { 
       colors: "#85A29E,#FFEBBF,#F0D442,#F59330,#B22148,#5b8ef2,#598829,#223482",
       background: "#fafaf8"
     }
