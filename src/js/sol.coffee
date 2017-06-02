@@ -64,6 +64,9 @@ class window.Sol
   background: (color=@background_color) ->
     #clear the screen
     @canvas.rect(@width,@height).fill(color)
+    
+  scale: (min, max, percent) ->
+    return (min + ((max-min) * percent))
 
 window.save_svg = () ->
   console.log "Saving..."
