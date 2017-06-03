@@ -29,7 +29,7 @@ class window.Trunk
 
     palettes = [
       {fore: '#ffe', back: '#443'}, 
-      {fore: '#eef', back: '#2eacc8'}, 
+      {fore: '#eef', back: '#206ba8'}, 
       {fore: '#300', back: '#ffe'} ]
           
     i = Math.floor(Math.random() * palettes.length)

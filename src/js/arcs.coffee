@@ -6,13 +6,14 @@ window.do_arcs = () ->
   arcs.arc(sol.width/2, sol.height/2, sol.width/5, -80, 80, 1, {width: 10, color: "#000", linecap: "round"})
   #arcs.arc(sol.width/2, sol.height/2, sol.width/5, 0, 90, 1, {width: 5, color: "#000"})
   ###
+  color = "#fff"
   arcs = new Arcs()
   #arcs.broken_ring(sol.width/2,sol.height/2, sol.height/5, sol.width/50, 0)
   for i in [1..40]
     magic_multiplier = 80
     thickness = i * sol.height/(magic_multiplier*20)
     rad = i * sol.height/magic_multiplier
-    arcs.split_ring(sol.width/2,sol.height/2, i * thickness*1.1, thickness, Math.random()*360, sol.randColor())
+    arcs.split_ring(sol.width/2,sol.height/2, i * thickness*1.1, thickness, Math.random()*360, color)
   
   
 class window.Arcs

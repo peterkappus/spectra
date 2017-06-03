@@ -43,6 +43,7 @@ html lang="en"
     script src="/js/islamic.js"
     script src="/js/arcs.js"
     script src="/js/tree.js"
+    script src="/js/crosslines.js"
     script src="/js/main.js"
     
     / How to add global functions w/ coffeescript
@@ -51,6 +52,7 @@ html lang="en"
         
     .biglinks 
       a href="javascript: new Tree()" Tree
+      a href="javascript: new CrossLines()" CrossLines
       a href="javascript: new Chords()" Chords
       a href="javascript: do_arcs()" Arcs
       a href="javascript: ColorByNumber.random()" Random Dots
@@ -67,5 +69,6 @@ html lang="en"
       #do_arcs()
       #new Chords()
       new Tree()#(sol.width/2, sol.height, 0, 5)
+      #new CrossLines()
       
     
