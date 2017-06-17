@@ -1,3 +1,6 @@
+
+
+
 class window.Tree  
   constructor: () ->
     max_depth = 10
@@ -24,17 +27,11 @@ class window.Trunk
     @min_length = sol.height/15
     @length = sol.rando(sol.height/5, sol.height/2)
     
-    
     @margin = @min_length
 
-    palettes = [
-      {fore: '#ffe', back: '#443'}, 
-      {fore: '#eef', back: '#206ba8'}, 
-      {fore: '#300', back: '#ffe'} ]
-          
-    i = Math.floor(Math.random() * palettes.length)
-    @foreground_color = palettes[i].fore
-    @background_color = palettes[i].back
+    i = Math.floor(Math.random() * sol.palettes.length)
+    @foreground_color = sol.palettes[i].fore
+    @background_color = sol.palettes[i].back
 
     #@branches = false
     #@max_depth = 12
@@ -54,9 +51,6 @@ class window.Branch
     #console.log("hello")
     #console.log(trunk.max_depth)# if parent != null
     
-    if(depth >= trunk.max_depth)
-      return
-                
     max_depth = trunk.max_depth
     percentage = (max_depth - depth) / max_depth
     
@@ -77,16 +71,21 @@ class window.Branch
     
     @thickness = trunk.min_thickness + (percentage * (trunk.max_thickness - trunk.min_thickness))
     
+    if(depth >= trunk.max_depth)      
+      sol.canvas.circle(sol.scale(trunk.min_joint_radius, trunk.max_joint_radius, percentage)).cx(start_x).cy(start_y).stroke({color: trunk.foreground_color; width: @thickness}).fill({color: trunk.foreground_color})
+      return
+                
+    
+    
     if(new_x > margin && new_x < sol.width - margin && new_y > margin && new_y < sol.height-margin)
     #if(is_inside_radius(new_x, new_y))
       if(trunk.branches)
         sol.canvas.line(start_x, start_y, new_x, new_y).stroke({color: trunk.foreground_color; width: @thickness; linecap: 'round'})
       
-      if(trunk.joints)
-        sol.canvas.circle(sol.scale(trunk.min_joint_radius, trunk.max_joint_radius, percentage)).cx(new_x).cy(new_y).stroke({color: trunk.foreground_color; width: @thickness}).fill({color: trunk.foreground_color})
+      #if(trunk.joints)
+      #  sol.canvas.circle(sol.scale(trunk.min_joint_radius, trunk.max_joint_radius, percentage)).cx(new_x).cy(new_y).stroke({color: trunk.foreground_color; width: @thickness}).fill({color: trunk.foreground_color})
       
       if(new_y > 0)
         new_depth = depth + 1
         for i in [1..sol.rando(1,4)]
           new Branch(new_x,new_y, new_depth, @, trunk)
-  

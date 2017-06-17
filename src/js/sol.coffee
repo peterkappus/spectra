@@ -14,6 +14,10 @@ class window.Sol
     
     @foreground_color = "#000"
     @background_color = "#fff"
+    @palettes = [
+      {fore: '#ffe', back: '#443'}, 
+      {fore: '#eef', back: '#206ba8'}, 
+      {fore: '#300', back: '#ffe'} ]
   
   set_size: (w,h) ->
     @canvas.size(@width,@height)
@@ -33,6 +37,9 @@ class window.Sol
   
   round_rando: (min,max) ->
     return Math.round(rando(min,max))
+  
+  vary: (value, amount) ->
+    return sol.rando(value * (1-amount),value * (1+amount))
   
   rando_within: (current,min_amount,max_amount,lower_bound,upper_bound) ->
     #keep us in range...
@@ -68,6 +75,9 @@ class window.Sol
   scale: (min, max, percent) ->
     return (min + ((max-min) * percent))
 
+window.background = () ->
+  sol.background(sol.randColor())
+  
 window.save_svg = () ->
   console.log "Saving..."
   #$.post('/save_svg',{data: $('#svg').html()})

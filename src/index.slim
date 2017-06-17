@@ -44,6 +44,8 @@ html lang="en"
     script src="/js/arcs.js"
     script src="/js/tree.js"
     script src="/js/crosslines.js"
+    script src="/js/beads.js"
+    script src="/js/jitter_circ.js"
     script src="/js/main.js"
     
     / How to add global functions w/ coffeescript
@@ -51,6 +53,9 @@ html lang="en"
     /  window.booger =  () ->
         
     .biglinks 
+      a href="javascript: new Beads()" Beads
+      a href="javascript: new JitterCirc()" Jitter Circ
+      a href="javascript: background()" Background
       a href="javascript: new Tree()" Tree
       a href="javascript: new CrossLines()" CrossLines
       a href="javascript: new Chords()" Chords
@@ -68,7 +73,9 @@ html lang="en"
     coffee:
       #do_arcs()
       #new Chords()
-      new Tree()#(sol.width/2, sol.height, 0, 5)
+      #new Tree()#(sol.width/2, sol.height, 0, 5)
+      # new June11()
+      new JitterCirc()
       #new CrossLines()
       
     
