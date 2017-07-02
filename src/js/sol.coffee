@@ -64,6 +64,19 @@ class window.Sol
   hline: (y,thickness) ->
       @canvas.rect(@width,thickness).y(y).fill(@foreground_color)
 
+  polygon: (cx,cy,sides,rad, thickness, start_angle) ->
+    angle = start_angle
+    #alert('ok')
+    while angle-start_angle < Math.PI * 2
+      x = cx + (Math.sin(angle) * rad)
+      y = cy + (Math.cos(angle) * rad)
+      
+      angle += (Math.PI * 2) / sides
+      new_x = cx + (Math.sin(angle) * rad)
+      new_y = cy + (Math.cos(angle) * rad)
+      
+      @canvas.line(x, y, new_x, new_y).stroke({color: sol.foreground_color; width: @thickness; linecap: 'round'})
+      
   #rand foreground?
   randColor: ->
     new SVG.Color('#'+(0xFFFFFF-Math.random()*0xFFFFFF).toString(16).substr(0, 6))

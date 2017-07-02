@@ -13,6 +13,11 @@ html lang="en"
     meta name="author" content="Peter Kappus"
     script src="/js/jquery.min.js"
     script src="/js/svg.min.js"
+    /script src="/js/sol.js"
+    /script src="/js/all.min.js"
+    /script src="/js/main.js"
+
+
     //enable this during dev to see things as you work...
     //script src="live.js"
     sass:
@@ -46,6 +51,8 @@ html lang="en"
     script src="/js/crosslines.js"
     script src="/js/beads.js"
     script src="/js/jitter_circ.js"
+    script src="/js/mandala.js"
+    script src="/js/stalag.js"
     script src="/js/main.js"
     
     / How to add global functions w/ coffeescript
@@ -53,6 +60,8 @@ html lang="en"
     /  window.booger =  () ->
         
     .biglinks 
+      a href="javascript: new Mandala()" Mandala
+      a href="javascript: new Stalagtites()" Stalagtites
       a href="javascript: new Beads()" Beads
       a href="javascript: new JitterCirc()" Jitter Circ
       a href="javascript: background()" Background
@@ -75,7 +84,9 @@ html lang="en"
       #new Chords()
       #new Tree()#(sol.width/2, sol.height, 0, 5)
       # new June11()
-      new JitterCirc()
+      #new JitterCirc()
+      #new Mandala()
+      new Stalagtites()
       #new CrossLines()
       
     
