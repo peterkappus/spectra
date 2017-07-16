@@ -8,9 +8,9 @@ require 'sinatra/asset_pipeline'
 register Sinatra::AssetPipeline
 
 
-require 'v8'
+#require 'v8'
 #set our views path
-set :views, File.dirname(__FILE__) + '/views'
+#set :views, File.dirname(__FILE__) + '/views'
 
 #make pretty HTML if you like (for debugging, maybe)
 #set :slim, :pretty => true
@@ -38,7 +38,7 @@ get_or_post '/save_svg' do
   #use a timestamp as the title
 	file_name = Time.now.to_i
 
-	FOLDER = "../works" #okay to change this
+	FOLDER = "works" #okay to change this
   IMG_WIDTH = 8500
 
 	IO.write("#{FOLDER}/#{file_name}.svg",params['data'])

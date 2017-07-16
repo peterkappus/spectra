@@ -14,6 +14,17 @@ Start gulp in the background:
 
 Now visit http://localhost:1337
 
+## Using docker
+
+```
+#from the host
+docker build -t spectra .
+docker run -p 8080:1337 -p 5000:5000 -v $(pwd):/app  -it spectra bash
+#from within the container
+gulp &
+#sinatra (bind to 0.0.0.0 so it's accessible outside our container)
+ruby app.rb -p 5000 -o 0.0.0.0
+```
 
 ## Saving SVGs
 Okay, this part gets weird. TODO: port this to ExpressJS so we don't have to use Ruby... For now this allows you to save SVGS locally by running a Sinatra app. It won't work when you deploy just the static front-end files to AWS, for example...
@@ -47,4 +58,4 @@ To deploy just the static HTML/JS files which allows you to make pretty pictures
 ```
 s3cmd sync dist/ s3://<BUCKET_NAME> --delete-removed -P --rexclude=.git*
 ```
-(NOTE: you'll need s3cmd to do this...) 
+(NOTE: you'll need s3cmd to do this...)
