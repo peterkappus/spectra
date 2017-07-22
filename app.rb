@@ -7,6 +7,9 @@ require 'slim'
 require 'sinatra/asset_pipeline'
 register Sinatra::AssetPipeline
 
+FOLDER = "works" #okay to change this
+IMG_WIDTH = 8500
+
 
 #require 'v8'
 #set our views path
@@ -34,12 +37,9 @@ def self.get_or_post(url,&block)
 end
 
 get_or_post '/save_svg' do
-  headers 'Access-Control-Allow-Origin' => 'http://localhost:1337'
+  headers 'Access-Control-Allow-Origin' => 'http://localhost:8080'
   #use a timestamp as the title
 	file_name = Time.now.to_i
-
-	FOLDER = "works" #okay to change this
-  IMG_WIDTH = 8500
 
 	IO.write("#{FOLDER}/#{file_name}.svg",params['data'])
 	#NOTE! you may have to customize the bin path on your server...
