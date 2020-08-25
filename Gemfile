@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 #Rack > 2.0 breaks sinatra but is necessary for Rails 5...
-gem 'rack', '<2.0'
+gem "rack", ">= 2.1.4"
 gem 'sinatra'
 #gem 'jammit-sinatra'
 gem 'sinatra-asset-pipeline', '~> 1.0'

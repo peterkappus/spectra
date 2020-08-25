@@ -3,15 +3,15 @@ FROM node
 
 RUN mkdir /app
 
-# Set the working directory to /app
-WORKDIR /app
 
 # Copy the current directory contents into the container at /app
 ADD . /app
 
+# Set the working directory to /app
+WORKDIR /app
 RUN apt-get update; apt-get install -y ruby ruby-dev librsvg2-bin
 RUN gem install bundle
-RUN bundle
+#RUN bundle
 RUN npm install -g gulp; npm install --save-dev gulp express
 
 #for gulp

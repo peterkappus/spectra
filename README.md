@@ -16,9 +16,11 @@ Now visit http://localhost:1337
 
 ## Using docker
 
+### First time
+  `docker build -t spectra .`
+
+### Future times
 ```
-#from the host
-docker build -t spectra .
 docker run -p 8080:1337 -p 5000:5000 -v $(pwd):/app  -it spectra bash
 #from within the container
 gulp &
